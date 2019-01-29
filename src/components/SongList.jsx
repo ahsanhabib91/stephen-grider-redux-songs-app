@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { selectSong } from "../actions";
+import SongDetail from "./SongDetail";
 
 class SongList extends Component {
   renderList() {
@@ -21,10 +22,14 @@ class SongList extends Component {
     });
   }
   render() {
-    // console.log("SongList props:", this.props);
+    console.log("SongList props:", this.props);
     return (
       <div>
         <div className="ui divided list">{this.renderList()}</div>
+        {/* Testing Purpose */}
+        {/* <div className="column eight wide">
+          <SongDetail song={{ title: "Song 1", duration: "1:05" }} />
+        </div> */}
       </div>
     );
   }
@@ -35,7 +40,7 @@ class SongList extends Component {
  * Any time state data gets changed or anytime we re-run reducers and produce some new state object, this function will re-run with the newly created state object.
  */
 const mapStateToProps = state => {
-  //   console.log("SongList state:", state);
+  console.log("SongList state:", state);
   return { songs: state.songs };
 };
 
